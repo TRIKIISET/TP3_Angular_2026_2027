@@ -1,0 +1,9 @@
+<ul>
+    <li> {{country.name |uppercase |nameperso:5}}</li>
+    <li> {{country.capital |titlecase}}</li>
+    <li>{{country.independence | date:'dd/MM/yyyy'}}</li>
+    <li>{{country.area |number:'3.3'}} Km2</li>
+    <li>{{country.gdp | currency}}</li>
+</ul>
+
+{{country |json}}
