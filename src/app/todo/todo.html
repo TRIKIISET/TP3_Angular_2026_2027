@@ -1,0 +1,10 @@
+<h3>Liste des tâches à faire</h3>
+<ul>
+    @for( item of todoList; track $index){
+    <li>{{$index+1 }} / {{$count}} {{item.task}} - {{item.state}}
+        @if(item.state!="done"){
+        <button (click)="onChangeState(item)">{{(item.state=='not yet')?'Commencer':'Terminer'}}</button>
+        }
+    </li>
+    }
+</ul>
