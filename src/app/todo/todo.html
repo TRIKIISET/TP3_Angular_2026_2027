@@ -8,3 +8,20 @@
     </li>
     }
 </ul>
+<h3>Liste des tâches à faire</h3>
+<ul>
+    @for( item of todoList; track $index ; let indice =$index; let nb= $count){
+    <li>
+        <span [style.color]="($index %2==0)?'blue':'red'">{{$index+1 }} / {{$count}}</span>
+        {{item.task}} - <span [class]="{
+            'badge':true,
+            'text-bg-dark': item.state=='not yet',
+            'text-bg-primary': item.state =='in progress',
+            'text-bg-danger':item.state =='done'
+        }">{{item.state}}</span>
+        @if(item.state!="done"){
+        <button (click)="onChangeState(item)">{{(item.state=='not yet')?'Commencer':'Terminer'}}</button>
+        }
+    </li>
+    }
+</ul>
